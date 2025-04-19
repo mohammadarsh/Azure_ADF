@@ -1,0 +1,56 @@
+{
+	"name": "ls_pipline",
+	"properties": {
+		"activities": [
+			{
+				"name": "act_id_lst",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "id",
+					"value": {
+						"value": "@split(pipeline().parameters.input_lst,',')[0]",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "act_name_lst",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "name_lst",
+					"value": {
+						"value": "@concat(split(pipeline().parameters.input_lst, ',')[1], ',', split(pipeline().parameters.input_lst, ',')[2])\r\n",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"input_lst": {
+				"type": "string",
+				"defaultValue": "1,ram,patil"
+			}
+		},
+		"variables": {
+			"id": {
+				"type": "String"
+			},
+			"name_lst": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
