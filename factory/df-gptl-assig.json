@@ -1,0 +1,9 @@
+{
+	"name": "df-gptl-assig",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "540cd410-6de2-4614-8f66-ade7c117eb66",
+		"tenantId": "bec8c4cd-d261-4786-a446-b710fb7f179f"
+	}
+}
