@@ -1,0 +1,153 @@
+{
+	"name": "lect_19_pipline_assignment",
+	"properties": {
+		"activities": [
+			{
+				"name": "act_r_lst",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.input_lst",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@startswith(item(),'r')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "var _r_lst",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "act_r_lst",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "r_lst",
+					"value": {
+						"value": "@activity('act_r_lst').output.value",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "fil_m_lst",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.input_lst",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@startswith(item(),'m')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "var_set_m_lst",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "fil_m_lst",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "m_lst",
+					"value": {
+						"value": "@activity('fil_m_lst').output.value",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "fil_other",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.input_lst",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@and(not(startswith(item(),'m')),not(startswith(item(),'r')))\n\n\n",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "var_set_other",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "fil_other",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "other_lst",
+					"value": {
+						"value": "@activity('fil_other').output.value",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"input_lst": {
+				"type": "array",
+				"defaultValue": [
+					"Ram",
+					"patil",
+					"manoj",
+					"manish",
+					"mohan",
+					"kiran",
+					"suresh"
+				]
+			}
+		},
+		"variables": {
+			"r_lst": {
+				"type": "Array"
+			},
+			"m_lst": {
+				"type": "Array"
+			},
+			"other_lst": {
+				"type": "Array"
+			}
+		},
+		"annotations": []
+	}
+}
