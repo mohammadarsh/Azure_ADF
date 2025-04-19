@@ -1,0 +1,9 @@
+{
+	"name": "df-arsh",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "dd625cf6-a249-466b-b036-9020a986b456",
+		"tenantId": "bec8c4cd-d261-4786-a446-b710fb7f179f"
+	}
+}
