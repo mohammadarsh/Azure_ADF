@@ -1,0 +1,30 @@
+{
+	"name": "lect19_validation_act",
+	"properties": {
+		"activities": [
+			{
+				"name": "act_validation_file_Check",
+				"type": "Validation",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "ds_dept",
+						"type": "DatasetReference"
+					},
+					"timeout": "0.12:00:00",
+					"sleep": 10
+				}
+			}
+		],
+		"variables": {
+			"mum_lst": {
+				"type": "Array"
+			},
+			"pune_lst": {
+				"type": "Array"
+			}
+		},
+		"annotations": []
+	}
+}

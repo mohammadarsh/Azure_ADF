@@ -1,0 +1,118 @@
+{
+	"name": "pipline_lect19_filter_activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "act_filter_mum",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.input_lst",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@equals(item().city,'mumbai')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "act_filter_pune",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.input_lst",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@equals(item().city,'pune')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "act_set_mumbai",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "act_filter_mum",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "mum_lst",
+					"value": {
+						"value": "@activity('act_filter_mum').output.value",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "act_set_pune",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "act_filter_pune",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pune_lst",
+					"value": {
+						"value": "@activity('act_filter_pune').output.value",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"input_lst": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"id": 1,
+						"name": "aman",
+						"city": "pune"
+					},
+					{
+						"id": 2,
+						"name": "zaid",
+						"city": "mumbai"
+					},
+					{
+						"id": 1,
+						"name": "govig",
+						"city": "pune"
+					}
+				]
+			}
+		},
+		"variables": {
+			"mum_lst": {
+				"type": "Array"
+			},
+			"pune_lst": {
+				"type": "Array"
+			}
+		},
+		"annotations": []
+	}
+}
