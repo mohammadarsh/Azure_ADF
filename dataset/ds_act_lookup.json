@@ -1,0 +1,24 @@
+{
+	"name": "ds_act_lookup",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blackhat_storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "sparepart_data.csv",
+				"folderPath": "input_data",
+				"fileSystem": "adf-copy-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
