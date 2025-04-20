@@ -11,7 +11,6 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "emp.csv",
-				"folderPath": "input_data",
 				"fileSystem": "adf-copy-data"
 			}
 		}
