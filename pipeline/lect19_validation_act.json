@@ -10,13 +10,24 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "ds_dept",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": {
+								"value": "@pipeline().parameters.file_name",
+								"type": "Expression"
+							}
+						}
 					},
 					"timeout": "0.12:00:00",
 					"sleep": 10
 				}
 			}
 		],
+		"parameters": {
+			"file_name": {
+				"type": "string"
+			}
+		},
 		"variables": {
 			"mum_lst": {
 				"type": "Array"
