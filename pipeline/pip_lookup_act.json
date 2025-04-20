@@ -29,7 +29,8 @@
 					"dataset": {
 						"referenceName": "ds_act_lookup",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			}
 		],
