@@ -3,9 +3,57 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "act_id_lst",
-				"type": "SetVariable",
+				"name": "ForEach1",
+				"type": "ForEach",
 				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.input_lst",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "act_append_id",
+							"type": "AppendVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "append_id",
+								"value": {
+									"value": "@item().id",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "act_append_name",
+							"type": "AppendVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "append_name",
+								"value": {
+									"value": "@item().name",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "act_set_id",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"secureOutput": false,
 					"secureInput": false
@@ -14,15 +62,22 @@
 				"typeProperties": {
 					"variableName": "id",
 					"value": {
-						"value": "@split(pipeline().parameters.input_lst,',')[0]",
+						"value": "@variables('append_id')",
 						"type": "Expression"
 					}
 				}
 			},
 			{
-				"name": "act_name_lst",
+				"name": "act_set_name",
 				"type": "SetVariable",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"secureOutput": false,
 					"secureInput": false
@@ -31,7 +86,7 @@
 				"typeProperties": {
 					"variableName": "name_lst",
 					"value": {
-						"value": "@concat(split(pipeline().parameters.input_lst, ',')[1], ',', split(pipeline().parameters.input_lst, ',')[2])\r\n",
+						"value": "@variables('append_name')",
 						"type": "Expression"
 					}
 				}
@@ -39,16 +94,35 @@
 		],
 		"parameters": {
 			"input_lst": {
-				"type": "string",
-				"defaultValue": "1,ram,patil"
+				"type": "array",
+				"defaultValue": [
+					{
+						"id": 1,
+						"name": "Ram Patil"
+					},
+					{
+						"id": 2,
+						"name": "Shyam Patil"
+					},
+					{
+						"id": 3,
+						"name": "govind raina"
+					}
+				]
 			}
 		},
 		"variables": {
 			"id": {
-				"type": "String"
+				"type": "Array"
 			},
 			"name_lst": {
-				"type": "String"
+				"type": "Array"
+			},
+			"append_id": {
+				"type": "Array"
+			},
+			"append_name": {
+				"type": "Array"
 			}
 		},
 		"annotations": []
