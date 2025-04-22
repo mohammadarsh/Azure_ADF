@@ -1,0 +1,12 @@
+{
+	"name": "ds_rest_api",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_get_data_api",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "ds_rest_api_result",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_arsh_storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "api_result",
+				"fileSystem": "input-dataset"
+			}
+		},
+		"schema": {}
+	}
+}
