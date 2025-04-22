@@ -26,6 +26,7 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
+							"wildcardFileName": "customer.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -142,8 +143,11 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_source_data",
-						"type": "DatasetReference"
+						"referenceName": "ds_source_customer",
+						"type": "DatasetReference",
+						"parameters": {
+							"dir_loc": "customer.csv"
+						}
 					}
 				],
 				"outputs": [
