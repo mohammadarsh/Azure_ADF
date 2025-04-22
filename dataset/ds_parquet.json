@@ -1,0 +1,20 @@
+{
+	"name": "ds_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_arsh_storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "api_result",
+				"fileSystem": "input-dataset"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}

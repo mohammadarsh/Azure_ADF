@@ -5,8 +5,19 @@
 			"referenceName": "ls_get_data_api",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"relative_url": {
+				"type": "String"
+			}
+		},
 		"annotations": [],
 		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": {
+				"value": "@dataset().relative_url",
+				"type": "Expression"
+			}
+		},
 		"schema": []
 	}
 }
