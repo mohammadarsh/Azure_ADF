@@ -1,0 +1,24 @@
+{
+	"name": "ds_customer_merge",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_arsh_storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "cust_merge.csv",
+				"folderPath": "target_loc",
+				"fileSystem": "input-dataset"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
