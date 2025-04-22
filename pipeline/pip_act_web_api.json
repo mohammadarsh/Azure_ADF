@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "act_get_data",
+				"name": "Web1",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"method": "GET",
-					"url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojso"
+					"url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
 				}
 			}
 		],

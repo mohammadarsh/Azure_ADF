@@ -1,10 +1,6 @@
 {
 	"name": "ds_dept",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ls_blackhat_storage",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"file_name": {
 				"type": "String"

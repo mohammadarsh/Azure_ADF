@@ -1,10 +1,6 @@
 {
 	"name": "ds_act_lookup",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ls_blackhat_storage",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

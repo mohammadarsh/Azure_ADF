@@ -1,10 +1,6 @@
 {
 	"name": "ds_dept_meta_data",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ls_blackhat_storage",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
