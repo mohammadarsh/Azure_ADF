@@ -15,10 +15,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": {
-					"value": "@dataset().dir_loc",
-					"type": "Expression"
-				},
 				"fileSystem": "input-dataset"
 			},
 			"columnDelimiter": ",",
