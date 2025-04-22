@@ -1,5 +1,5 @@
 {
-	"name": "ds_source_customer",
+	"name": "ds_copy_sink_data_wildcard",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_arsh_storage",
@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"folderPath": "target_loc",
 				"fileSystem": "input-dataset"
 			},
 			"columnDelimiter": ",",

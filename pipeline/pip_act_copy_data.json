@@ -144,15 +144,12 @@
 				"inputs": [
 					{
 						"referenceName": "ds_source_customer",
-						"type": "DatasetReference",
-						"parameters": {
-							"dir_loc": "customer.csv"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_copy_sink_data",
+						"referenceName": "ds_copy_sink_data_wildcard",
 						"type": "DatasetReference"
 					}
 				]
