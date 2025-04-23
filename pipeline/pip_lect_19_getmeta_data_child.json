@@ -113,11 +113,19 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "file_lst_set",
-					"value": {
-						"value": "@variables('file_list')",
-						"type": "Expression"
-					}
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "file_val",
+							"value": {
+								"type": "Expression",
+								"content": [
+									"@variables('file_list')"
+								]
+							}
+						}
+					],
+					"setSystemVariable": true
 				}
 			},
 			{
@@ -137,11 +145,8 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "folder_lst_set",
-					"value": {
-						"value": "@variables('folder_lst')",
-						"type": "Expression"
-					}
+					"variableName": "pipelineReturnValue",
+					"setSystemVariable": true
 				}
 			}
 		],
