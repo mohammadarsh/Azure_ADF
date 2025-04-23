@@ -1,6 +1,10 @@
 {
 	"name": "ds_delete_act",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_arsh_storage",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
