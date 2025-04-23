@@ -12,7 +12,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "pip_lect_19_getmeta_data",
+						"referenceName": "pip_act_copy_data",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
