@@ -5,12 +5,20 @@
 			"referenceName": "ls_sql_server",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"tbl_nm": {
+				"type": "String"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
 			"schema": "gptl",
-			"table": "employee"
+			"table": {
+				"value": "@dataset().tbl_nm",
+				"type": "Expression"
+			}
 		}
 	}
 }
